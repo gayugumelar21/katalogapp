@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Akun;
 use Session;
@@ -27,7 +28,7 @@ class AkunController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.akun.create');
     }
 
     /**
@@ -38,7 +39,17 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Akun::create([
+            'name' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Akun Dibuat!'
+        ]);
     }
 
     /**
@@ -49,7 +60,8 @@ class AkunController extends Controller
      */
     public function show($id)
     {
-        //
+        $akuns = Akun::findOrFail($id);
+        return response()->json($akuns);
     }
 
     /**
@@ -60,7 +72,8 @@ class AkunController extends Controller
      */
     public function edit($id)
     {
-        //
+        $akun = Akun::findOrFail($id);
+        return $akun;
     }
 
     /**
@@ -72,7 +85,19 @@ class AkunController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $akun = Akun::findOrFail($id);
+
+        $akun->name = $request->username;
+        $akun->email = $request->email;
+        $akun->password = Hash::make($request->password);
+        $akun->role = $request->role;
+
+        $akun->update();
+
+        return response()->json([
+            'success'=>true,
+            'message'=>'Akun Diperbaharui!'
+        ]);
     }
 
     /**
@@ -83,7 +108,14 @@ class AkunController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $akuns = Akun::findOrFail($id);
+        
+        $akuns->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Akun Berhasil Dihapus!'
+        ]);
     }
 
     public function apiAkun()
