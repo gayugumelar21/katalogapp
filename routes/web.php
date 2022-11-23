@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+    // Halaman Depan
+    Route::get('/', 'App\Http\Controllers\DepanController@index');
+    Route::get('/cari', 'App\Http\Controllers\DepanController@cari');
+    Route::get('/about', 'App\Http\Controllers\DepanController@about');
+
     // login
     Route::get('login', 'App\Http\Controllers\AdminController@formLogin')->name('login');
     Route::post('login', 'App\Http\Controllers\AdminController@login');
