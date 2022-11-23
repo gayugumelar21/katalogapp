@@ -85,12 +85,28 @@ footer {
 	padding:15px 0;
 }
 .box {
+	border-radius: 10px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	padding: 15px;
 	box-sizing: border-box;
 	margin: 15px 0;
 }
+
+.container-login {
+	width: 35%;
+	margin: 0 auto;
+}
+
+.login {
+	border-radius: 10px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 15px;
+	box-sizing: border-box;
+	margin: 15px 0;
+}
+
 .box:after {
 	content: '';
 	display: block;

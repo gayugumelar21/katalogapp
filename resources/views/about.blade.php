@@ -25,7 +25,7 @@
 		<div class="container">
 			<h3>About</h3>
 			<div class="box">
-
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem perferendis facilis neque consequatur similique magnam iusto voluptatibus debitis perspiciatis veritatis aspernatur dolorem amet eaque nihil eligendi nemo et culpa, qui mollitia saepe a facere! Earum.</p>
 			</div>
 		</div>
 	</div>
